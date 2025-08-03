@@ -12,12 +12,12 @@
       class="header-with-background"
       style="background-image: url('images/<?php echo $pageImg; ?>')"
     >
-      <h1>Culinary Cove</h1>
-      <p>Your sanctuary for exceptional flavors</p>
+      <h1 style="color: black;">Culinary Cove</h1>
+      <p style="color: black;">Your sanctuary for exceptional flavors</p>
       <nav>
-        <a href="our-mission.php">Our mission</a>
-        <a href="ingredients.php">Ingredients</a>
-        <a href="menu.php">Menu</a>
+        <a style="color: black;" href="our-mission.php">Our mission</a>
+        <a style="color: black;" href="ingredients.php">Ingredients</a>
+        <a style="color: black;" href="menu.php">Menu</a>
       </nav>
     </header>
 
