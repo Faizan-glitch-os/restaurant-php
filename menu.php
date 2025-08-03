@@ -12,10 +12,22 @@ include './includes/header.inc.php' ?>
 <h1>Our menu</h1>
 
 <pre><?php 
-$item = 'Football';
+
+$item = 'football';
 $price = 1500;
 
-echo "Thanks for puchasing $item. Your total price becomes $price";
+$tax = round((20 * $price) / 100);
+$pricePlusTax = $price + $tax;
+
+$discount = round((30 * $price) / 100);
+$priceMinusDiscount = $pricePlusTax - $discount;
+$points = round($price / 10);
+
+echo "item price: Rs.$price \n";
+echo "item + 20% tax: Rs.$pricePlusTax \n";
+echo "item - 30% discount : Rs.$priceMinusDiscount\n";
+
+echo "Total price: Rs.$priceMinusDiscount\nand your Loyalty Points: $points";
 ?></pre>
   
 <h2>Starters</h2>
