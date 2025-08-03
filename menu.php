@@ -10,6 +10,13 @@ $pageImg = 'pexels-fwstudio-172289.jpg';
 include './includes/header.inc.php' ?>
 
 <h1>Our menu</h1>
+
+<pre><?php 
+$item = 'Football';
+$price = 1500;
+
+echo "Thanks for puchasing $item. Your total price becomes $price";
+?></pre>
   
 <h2>Starters</h2>
 <ul>
