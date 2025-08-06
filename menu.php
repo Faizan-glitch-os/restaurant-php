@@ -16,18 +16,43 @@ include './includes/header.inc.php' ?>
 $item = 'football';
 $price = 1500;
 
-$tax = round((20 * $price) / 100);
-$pricePlusTax = $price + $tax;
+//8% tax
+$tax = round((8 * $price) / 100);
 
-$discount = round((30 * $price) / 100);
-$priceMinusDiscount = $pricePlusTax - $discount;
-$points = round($price / 10);
+//total price + tax
+$totalPrice = $price + $tax;
 
-echo "item price: Rs.$price \n";
-echo "item + 20% tax: Rs.$pricePlusTax \n";
-echo "item - 30% discount : Rs.$priceMinusDiscount\n";
+//5% discount
+$discount3000 =  $totalPrice - round((5 * $price) / 100);
+//15% discount
+$discount6000 =  $totalPrice - round((15 * $price) / 100);
 
-echo "Total price: Rs.$priceMinusDiscount\nand your Loyalty Points: $points";
+//total price with 5% discount
+$priceMinusDiscount = $totalPrice - $discount3000;
+
+//total price with 15% discount
+$priceMinusDiscount = $totalPrice - $discount6000;
+
+//loyalty points
+$loyaltyPoints = 6000;
+
+//new loyalty points based on item price
+$newLoyaltyPoints = round($price / 10);
+
+if($loyaltyPoints < 3000){
+    echo "You have fewer than 3000 Loyalty Points. No discount is available.
+    Your final price (after taxes) would be $totalPrice.\nYour new Loyalty Balance would be: ". ($loyaltyPoints += $newLoyaltyPoints);
+} elseif($loyaltyPoints >= 3000 && $loyaltyPoints < 6000){
+    echo "You can spend 3000 Loyalty Points for a discount of 5%.
+    Your final price (after discount and taxes) would be " . ($discount3000) . "\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
+} elseif($loyaltyPoints >= 6000){
+    echo "You can spend 3000 Loyalty Points for a discount of 5%.
+    \nYour final price (after discount and taxes) would be $discount3000.\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
+
+echo "\n \nYou can spend 6000 Loyalty Points for a discount of 15%.\n
+Your final price (after discount and taxes) would be $discount6000.\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
+}
+
 ?></pre>
   
 <h2>Starters</h2>
