@@ -1,3 +1,11 @@
+<?php if(!isset($pageTitle)){
+  $pageTitle = 'defaultTitle';
+}
+
+if(!isset($pageImg)){
+  $pageImg = 'pexels-burak-the-weekender-735869.jpg';
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/simple.css" />
     <link rel="stylesheet" href="./styles/custom.css" />
-    <title>Culinary Cove &bull; <?php echo $pageTitle; ?></title>
+    <title><?php echo $pageTitle; ?></title>
   </head>
   <body>
     <header
@@ -15,9 +23,9 @@
       <h1 style="color: black;">Culinary Cove</h1>
       <p style="color: black;">Your sanctuary for exceptional flavors</p>
       <nav>
-        <a style="color: black;" href="our-mission.php">Our mission</a>
-        <a style="color: black;" href="ingredients.php">Ingredients</a>
-        <a style="color: black;" href="menu.php">Menu</a>
+        <a <?php if($pageTitle === 'Our Mission') : ?> class="active" <?php endif; ?> style="color: black;" href="our-mission.php">Our mission</a>
+        <a <?php if($pageTitle === 'Ingredients') : ?> class="active" <?php endif; ?> style="color: black;" href="ingredients.php">Ingredients</a>
+        <a <?php if($pageTitle === 'Menu') : ?> class="active" <?php endif; ?> style="color: black;" href="menu.php">Menu</a>
       </nav>
     </header>
 
