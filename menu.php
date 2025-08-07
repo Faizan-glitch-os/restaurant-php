@@ -11,49 +11,29 @@ include './includes/header.inc.php' ?>
 
 <h1>Our menu</h1>
 
-<pre><?php 
+<?php 
 
-$item = 'football';
-$price = 1500;
+$selectedCoffee;
 
-//8% tax
-$tax = round((8 * $price) / 100);
+if(!isset($selectedCoffee)){
+  $selectedCoffee = 'drip';
 
-//total price + tax
-$totalPrice = $price + $tax;
-
-//5% discount
-$discount3000 =  $totalPrice - round((5 * $price) / 100);
-//15% discount
-$discount6000 =  $totalPrice - round((15 * $price) / 100);
-
-//total price with 5% discount
-$priceMinusDiscount = $totalPrice - $discount3000;
-
-//total price with 15% discount
-$priceMinusDiscount = $totalPrice - $discount6000;
-
-//loyalty points
-$loyaltyPoints = 6000;
-
-//new loyalty points based on item price
-$newLoyaltyPoints = round($price / 10);
-
-if($loyaltyPoints < 3000){
-    echo "You have fewer than 3000 Loyalty Points. No discount is available.
-    Your final price (after taxes) would be $totalPrice.\nYour new Loyalty Balance would be: ". ($loyaltyPoints += $newLoyaltyPoints);
-} elseif($loyaltyPoints >= 3000 && $loyaltyPoints < 6000){
-    echo "You can spend 3000 Loyalty Points for a discount of 5%.
-    Your final price (after discount and taxes) would be " . ($discount3000) . "\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
-} elseif($loyaltyPoints >= 6000){
-    echo "You can spend 3000 Loyalty Points for a discount of 5%.
-    \nYour final price (after discount and taxes) would be $discount3000.\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
-
-echo "\n \nYou can spend 6000 Loyalty Points for a discount of 15%.\n
-Your final price (after discount and taxes) would be $discount6000.\nYour new Loyalty Balance would be: " . ($loyaltyPoints += $newLoyaltyPoints);
+  echo '<div class="coffee-info">
+    <div id="drip-coffee-info">
+        <h1>Drip Coffee ☕</h1>
+        <p>Drip coffee, a staple in many routines, is known for its straightforward brewing process and comforting, familiar taste. Perfect for starting your morning or as a midday pick-me-up. ☕️🌅</p>
+    </div>
+</div>';
+} elseif($selectedCoffee = 'espresso'){
+    echo '<div class="coffee-info">
+    <div id="espresso-info">
+        <h1>Espresso ☕</h1>
+        <p>Espresso is a concentrated coffee drink with a bold flavor. It pairs perfectly with a chocolate croissant. 🍫🥐</p>
+    </div>
+</div>';
 }
 
-?></pre>
+?>
   
 <h2>Starters</h2>
 <ul>
