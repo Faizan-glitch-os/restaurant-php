@@ -1,6 +1,8 @@
 <!-- included header -->
 <?php 
 
+$selectedCoffee = 'espresso';
+
 // page title
 $pageTitle = 'Menu';
 
@@ -12,28 +14,22 @@ include './includes/header.inc.php' ?>
 <h1>Our menu</h1>
 
 <?php 
-
-$selectedCoffee;
-
-if(!isset($selectedCoffee)){
-  $selectedCoffee = 'drip';
-
-  echo '<div class="coffee-info">
-    <div id="drip-coffee-info">
-        <h1>Drip Coffee ☕</h1>
-        <p>Drip coffee, a staple in many routines, is known for its straightforward brewing process and comforting, familiar taste. Perfect for starting your morning or as a midday pick-me-up. ☕️🌅</p>
+if(!isset($selectedCoffee)){ ?>
+ <?php $selectedCoffee = 'drip'; ?>
+    <div class="coffee-info">
+        <div id="drip-coffee-info">
+            <h1>Drip Coffee ☕</h1>
+            <p>Drip coffee, a staple in many routines, is known for its straightforward brewing process and comforting, familiar taste. Perfect for starting your morning or as a midday pick-me-up. ☕️🌅</p>
+        </div>
     </div>
-</div>';
-} elseif($selectedCoffee = 'espresso'){
-    echo '<div class="coffee-info">
-    <div id="espresso-info">
-        <h1>Espresso ☕</h1>
-        <p>Espresso is a concentrated coffee drink with a bold flavor. It pairs perfectly with a chocolate croissant. 🍫🥐</p>
-    </div>
-</div>';
-}
-
-?>
+    <?php } elseif($selectedCoffee = 'espresso'){ ?>
+        <div class="coffee-info">
+            <div id="espresso-info">
+                <h1>Espresso ☕</h1>
+                <p>Espresso is a concentrated coffee drink with a bold flavor. It pairs perfectly with a chocolate croissant. 🍫🥐</p>
+            </div>
+        </div>
+    <?php } ?>
   
 <h2>Starters</h2>
 <ul>
