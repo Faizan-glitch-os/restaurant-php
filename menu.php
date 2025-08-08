@@ -13,6 +13,23 @@ include './includes/header.inc.php' ?>
 
 <h1>Our menu</h1>
 
+<pre>
+    <?php 
+    $playlist = ['Starry Night','Sunny Days', 'Moonlit Walk', 'Whispering Wind', 'Golden Horizon'];
+if(!isset($playlist) || empty($playlist)){
+    echo "Your playlist needs an update. Time to discover more music!";
+   
+} elseif(array_search('Sunny Days', $playlist)){
+    echo "You have great taste! 'Sunny Days' always lifts the mood!" ;
+} elseif(!array_search('Sunny Days', $playlist)){
+    $playlist[1] = 'Solar Whispers';
+
+    var_dump($playlist);
+}
+?></pre>
+
+
+
 <?php 
 if(!isset($selectedCoffee)){ ?>
  <?php $selectedCoffee = 'drip'; ?>

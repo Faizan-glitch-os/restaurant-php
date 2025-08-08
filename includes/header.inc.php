@@ -1,8 +1,8 @@
-<?php if(!isset($pageTitle)){
+<?php if(!isset($pageTitle) || empty($pageTitle)){
   $pageTitle = 'defaultTitle';
 }
 
-if(!isset($pageImg)){
+if(!isset($pageImg) || empty($pageImg)){
   $pageImg = 'pexels-burak-the-weekender-735869.jpg';
 } ?>
 
