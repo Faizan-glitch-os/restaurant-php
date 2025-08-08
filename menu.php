@@ -15,17 +15,18 @@ include './includes/header.inc.php' ?>
 
 <pre>
     <?php 
-    $playlist = ['Starry Night','Sunny Days', 'Moonlit Walk', 'Whispering Wind', 'Golden Horizon'];
-if(!isset($playlist) || empty($playlist)){
-    echo "Your playlist needs an update. Time to discover more music!";
-   
-} elseif(array_search('Sunny Days', $playlist)){
-    echo "You have great taste! 'Sunny Days' always lifts the mood!" ;
-} elseif(!array_search('Sunny Days', $playlist)){
-    $playlist[1] = 'Solar Whispers';
+    $playlist = ['Starry Night', 'Moonlit Walk', 'Whispering Wind', 'Golden Horizon'];
+    $songRecommendations = ['Ocean Waves', 'City Nights', 'Rising Sun', 'Dancing Shadows', 'Eclipse'];
 
-    var_dump($playlist);
-}
+echo "Your last added song was: " . end($songRecommendations);
+
+$playlist[] = $songRecommendations[rand(0, count($songRecommendations) - 1)];
+
+var_dump($playlist);
+
+array_shift($playlist);
+
+var_dump($playlist);
 ?></pre>
 
 
