@@ -15,39 +15,37 @@ include './includes/header.inc.php' ?>
 
 <pre>
     <?php 
-    $playlist = ['Starry Night', 'Moonlit Walk', 'Whispering Wind', 'Golden Horizon'];
-    $songRecommendations = ['Ocean Waves', 'City Nights', 'Rising Sun', 'Dancing Shadows', 'Eclipse'];
+$waitingList = ['Dawn White', 'Frank Smith', 'Bob Carter', 'Charlie Davis', 'Eve Black', 'Alice Brown', 'Alice Brown', 'Charlie Davis', 'Grace Jones', 'Hank Green', 'Eve Black', 'Dawn White'];
+$removeFromList = ['Dawn White', 'Charlie Davis'];
 
-echo "Your last added song was: " . end($songRecommendations);
+$removeDuplicates = array_unique($waitingList);
 
-$playlist[] = $songRecommendations[rand(0, count($songRecommendations) - 1)];
+$cleanedList = array_values(array_diff($removeDuplicates, $removeFromList));
 
-var_dump($playlist);
+$selected = array_slice($cleanedList,0, 5);
 
-array_shift($playlist);
+sort($cleanedList);
 
-var_dump($playlist);
+var_dump($cleanedList)
+
+    
 ?></pre>
 
 
 
-<?php 
-if(!isset($selectedCoffee)){ ?>
- <?php $selectedCoffee = 'drip'; ?>
-    <div class="coffee-info">
-        <div id="drip-coffee-info">
-            <h1>Drip Coffee ☕</h1>
-            <p>Drip coffee, a staple in many routines, is known for its straightforward brewing process and comforting, familiar taste. Perfect for starting your morning or as a midday pick-me-up. ☕️🌅</p>
-        </div>
-    </div>
-    <?php } elseif($selectedCoffee = 'espresso'){ ?>
-        <div class="coffee-info">
-            <div id="espresso-info">
-                <h1>Espresso ☕</h1>
-                <p>Espresso is a concentrated coffee drink with a bold flavor. It pairs perfectly with a chocolate croissant. 🍫🥐</p>
-            </div>
-        </div>
+<ul>
+    <?php foreach($cleanedList AS $names) { ?>
+        <li>
+            <?php
+            if (in_array($names, $selected)) {
+                echo $names . ' tick';
+            } else {
+                echo $names . 'cross';
+            }
+            ?>
+        </li>
     <?php } ?>
+</ul>
   
 <h2>Starters</h2>
 <ul>
